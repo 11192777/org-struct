@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.common.orgstruct.mapper.DepartmentMapper">
+    <resultMap id="BaseResultMap" type="pers.common.orgstruct.entity.Department">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="oid" jdbcType="VARCHAR" property="departmentOid"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="code" jdbcType="VARCHAR" property="departmentCode"/>
+        <result column="company_id" jdbcType="BIGINT" property="companyId"/>
+        <result column="tenant_id" jdbcType="BIGINT" property="tenantId"/>
+        <result column="is_deleted" jdbcType="BIT" property="isDeleted"/>
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="created_date" jdbcType="TIMESTAMP" property="createdDate"/>
+        <result column="last_modified_date" jdbcType="TIMESTAMP" property="lastModifiedDate"/>
+        <result column="last_modified_by" jdbcType="VARCHAR" property="lastModifiedBy"/>
+        <result column="sequence_number" jdbcType="INTEGER" property="sequenceNumber"/>
+    </resultMap>
+    <sql id="BaseColumnList">
+        os_department.id,
+        os_department.oid,
+        os_department.`name`,
+        os_department.code,
+        os_department.company_id,
+        os_department.tenant_id,
+        os_department.is_deleted,
+        os_department.data_source,
+        os_department.created_by,
+        os_department.created_date,
+        os_department.last_modified_date,
+        os_department.last_modified_by,
+        os_department.sequence_number
+    </sql>
+
+</mapper>

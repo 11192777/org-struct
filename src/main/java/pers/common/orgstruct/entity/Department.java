@@ -3,6 +3,7 @@ package pers.common.orgstruct.entity;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.UUID;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
@@ -24,7 +25,7 @@ import org.apache.tomcat.jni.Local;
 public class Department extends Model<Department> {
     private Long id;
 
-    private String departmentOid;
+    private UUID oid;
 
     /**
      * 部门名称
@@ -34,7 +35,7 @@ public class Department extends Model<Department> {
     /**
      * 部门编码
      */
-    private String departmentCode;
+    private String code;
 
     /**
      * 所属公司Id

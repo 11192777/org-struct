@@ -112,32 +112,6 @@
         </dependency>
     </dependencies>
 
-
-    <repositories>
-        <repository>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>helios.releases</id>
-            <name>Releases</name>
-            <url>https://nexus.huilianyi.com/repository/maven-releases</url>
-        </repository>
-        <repository>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <id>helios.snapshots</id>
-            <name>Snapshot</name>
-            <url>https://nexus.huilianyi.com/repository/maven-snapshots</url>
-        </repository>
-    </repositories>
-
     <build>
         <plugins>
             <plugin>

@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class User extends Model<User> {
     private Long id;
 
-    private String userOid;
+    private String oid;
 
     /**
      * 租户Id

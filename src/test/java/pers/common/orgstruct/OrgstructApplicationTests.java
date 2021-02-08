@@ -2,7 +2,9 @@ package pers.common.orgstruct;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import pers.common.orgstruct.service.UserService;
 
 /**
  * @Author Qingyu
@@ -11,6 +13,9 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @SpringBootTest
 public class OrgstructApplicationTests {
+
+	@Autowired
+	UserService userService;
 
 	@Test
 	void contextLoads() {

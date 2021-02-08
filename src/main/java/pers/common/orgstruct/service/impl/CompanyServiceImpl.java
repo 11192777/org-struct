@@ -1,6 +1,7 @@
 package pers.common.orgstruct.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+
 import org.springframework.stereotype.Service;
 import pers.common.orgstruct.entity.Company;
 import pers.common.orgstruct.mapper.CompanyMapper;

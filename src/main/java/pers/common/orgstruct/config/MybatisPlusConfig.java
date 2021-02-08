@@ -6,7 +6,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@MapperScan({"pers.common.orgstatus.mapper"})
+@MapperScan({"pers.common.orgstruct.mapper"})
 @Configuration
 public class MybatisPlusConfig {
 //    @Bean

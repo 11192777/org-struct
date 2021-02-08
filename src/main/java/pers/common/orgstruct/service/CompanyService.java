@@ -9,5 +9,5 @@ import pers.common.orgstruct.mapper.CompanyMapper;
  * @Date 2021/2/8 18:48
  * @Version 1.0
  */
-public interface CompanyService {
+public interface CompanyService extends IService<Company>{
 }

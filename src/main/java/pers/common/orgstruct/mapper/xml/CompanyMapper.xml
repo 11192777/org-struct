@@ -12,7 +12,7 @@
         <result column="company_code" jdbcType="VARCHAR" property="companyCode"/>
         <result column="address" jdbcType="VARCHAR" property="address"/>
     </resultMap>
-    <sql id="Base_Column_List">
+    <sql id="BaseColumnList">
         os_company.id,
         os_company.company_oid,
         os_company.`name`,
@@ -23,4 +23,14 @@
         os_company.company_code,
         os_company.address
     </sql>
+
+    <!--List<CompanyVO> selectListByTenantId(Long tenantId);-->
+    <select id="selectListByTenantId" resultMap="BaseResultMap">
+        SELECT
+            <include refid="BaseColumnList"/>
+        FROM
+            os_company
+        WHERE
+            os_company.tenant_id = #{tenantId}
+    </select>
 </mapper>

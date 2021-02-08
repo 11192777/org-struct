@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="5 seconds">
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <!--  用来设置上下文名称，每个logger都关联到logger上下文，默认上下文名称为default。但可以使用<contextName>设置成其他名字，用于区分不同应用程序的记录。一旦设置，不能修改  -->
+    <contextName>e_archives</contextName>
+    <!-- 日志格式 -->
+
+<!--    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>/mnt/app/logs/e_archives/e_archives.log</file>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            &lt;!&ndash; 每小时滚动文件 &ndash;&gt;-->
+<!--            <fileNamePattern>/mnt/app/logs/e_archives/e_archives.%d{yyyy-MM-dd_HH}.%i.gz</fileNamePattern>-->
+<!--            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+<!--                &lt;!&ndash; or whenever the file size reaches 100MB &ndash;&gt;-->
+<!--                <maxFileSize>100MB</maxFileSize>-->
+<!--            </timeBasedFileNamingAndTriggeringPolicy>-->
+<!--        </rollingPolicy>-->
+<!--        <encoder>-->
+<!--            <charset>utf-8</charset>-->
+<!--            <pattern>%date %(${LOG_LEVEL_PATTERN:-%5p}) [%thread][%X{traceId}][%X{requestId}][%X{userOid}] %logger{36} [%file : %line] %msg%n</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
+    <logger name="pers.common.orgstruct" level="DEBUG"/>
+    <logger name="ch.qos.logback" level="WARN"/>
+    <logger name="org.apache" level="WARN"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.springframework.security" level="DEBUG"/>
+    <logger name="org.liquibase.util" level="INFO"/>
+    <logger name="liquibase" level="INFO"/>
+    <logger name="com.baomidou.mybatisplus" level="DEBUG"/>
+    <logger name="org.mybatis.spring" level="WARN"/>
+
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+<!--        <appender-ref ref="FILE"/>-->
+    </root>
+</configuration>

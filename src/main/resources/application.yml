@@ -1,0 +1,32 @@
+# server
+server:
+  servlet:
+    context-path: /orgstruct
+  port: 9091
+
+# spring
+spring:
+  application:
+    name: orgstruct
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://111.229.191.45:3306/orgstruct?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: kerwin
+    password: UWluZ3l1OTkwMTA0
+  liquibase:
+    change-log: classpath:db/master.xml
+  redis:
+    host: localhost
+    port: 6379
+  servlet:
+    multipart:
+      max-file-size: 10MB
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations:
+    - classpath:pers/common/orgstruct/mapper/xml/*.xml

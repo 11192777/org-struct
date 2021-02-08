@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.common.orgstruct.mapper.OsUserDao">
+  <resultMap id="BaseResultMap" type="pers.common.orgstruct.entity.User">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_oid" jdbcType="VARCHAR" property="userOid" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="company_id" jdbcType="BIGINT" property="companyId" />
+    <result column="contact_id" jdbcType="BIGINT" property="contactId" />
+    <result column="activated" jdbcType="BIT" property="activated" />
+    <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="last_modified_by" jdbcType="VARCHAR" property="lastModifiedBy" />
+    <result column="last_modified_date" jdbcType="TIMESTAMP" property="lastModifiedDate" />
+    <result column="activated_date" jdbcType="TIMESTAMP" property="activatedDate" />
+    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_oid, tenant_id, company_id, contact_id, activated, created_by, created_date, 
+    last_modified_by, last_modified_date, activated_date, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from os_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from os_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="pers.common.orgstruct.entity.User" useGeneratedKeys="true">
+    insert into os_user (user_oid, tenant_id, company_id, 
+      contact_id, activated, created_by, 
+      created_date, last_modified_by, last_modified_date, 
+      activated_date, is_deleted)
+    values (#{userOid,jdbcType=VARCHAR}, #{tenantId,jdbcType=BIGINT}, #{companyId,jdbcType=BIGINT}, 
+      #{contactId,jdbcType=BIGINT}, #{activated,jdbcType=BIT}, #{createdBy,jdbcType=VARCHAR}, 
+      #{createdDate,jdbcType=TIMESTAMP}, #{lastModifiedBy,jdbcType=VARCHAR}, #{lastModifiedDate,jdbcType=TIMESTAMP}, 
+      #{activatedDate,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="pers.common.orgstruct.entity.User" useGeneratedKeys="true">
+    insert into os_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userOid != null">
+        user_oid,
+      </if>
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="contactId != null">
+        contact_id,
+      </if>
+      <if test="activated != null">
+        activated,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdDate != null">
+        created_date,
+      </if>
+      <if test="lastModifiedBy != null">
+        last_modified_by,
+      </if>
+      <if test="lastModifiedDate != null">
+        last_modified_date,
+      </if>
+      <if test="activatedDate != null">
+        activated_date,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userOid != null">
+        #{userOid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=BIGINT},
+      </if>
+      <if test="contactId != null">
+        #{contactId,jdbcType=BIGINT},
+      </if>
+      <if test="activated != null">
+        #{activated,jdbcType=BIT},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null">
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifiedBy != null">
+        #{lastModifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifiedDate != null">
+        #{lastModifiedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activatedDate != null">
+        #{activatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.common.orgstruct.entity.User">
+    update os_user
+    <set>
+      <if test="userOid != null">
+        user_oid = #{userOid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=BIGINT},
+      </if>
+      <if test="contactId != null">
+        contact_id = #{contactId,jdbcType=BIGINT},
+      </if>
+      <if test="activated != null">
+        activated = #{activated,jdbcType=BIT},
+      </if>
+      <if test="createdBy != null">
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null">
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifiedBy != null">
+        last_modified_by = #{lastModifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifiedDate != null">
+        last_modified_date = #{lastModifiedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activatedDate != null">
+        activated_date = #{activatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.common.orgstruct.entity.User">
+    update os_user
+    set user_oid = #{userOid,jdbcType=VARCHAR},
+      tenant_id = #{tenantId,jdbcType=BIGINT},
+      company_id = #{companyId,jdbcType=BIGINT},
+      contact_id = #{contactId,jdbcType=BIGINT},
+      activated = #{activated,jdbcType=BIT},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      last_modified_by = #{lastModifiedBy,jdbcType=VARCHAR},
+      last_modified_date = #{lastModifiedDate,jdbcType=TIMESTAMP},
+      activated_date = #{activatedDate,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

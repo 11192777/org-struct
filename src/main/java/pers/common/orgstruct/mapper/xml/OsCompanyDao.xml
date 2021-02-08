@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.common.orgstruct.mapper.OsCompanyDao">
+  <resultMap id="BaseResultMap" type="pers.common.orgstruct.entity.Company">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="company_oid" jdbcType="VARCHAR" property="companyOid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="is_enabled" jdbcType="BIT" property="isEnabled" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="company_code" jdbcType="VARCHAR" property="companyCode" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, company_oid, `name`, created_by, created_date, is_enabled, tenant_id, company_code, 
+    address
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from os_company
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from os_company
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="pers.common.orgstruct.entity.Company" useGeneratedKeys="true">
+    insert into os_company (company_oid, `name`, created_by, 
+      created_date, is_enabled, tenant_id, 
+      company_code, address)
+    values (#{companyOid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, 
+      #{createdDate,jdbcType=TIMESTAMP}, #{isEnabled,jdbcType=BIT}, #{tenantId,jdbcType=BIGINT}, 
+      #{companyCode,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="pers.common.orgstruct.entity.Company" useGeneratedKeys="true">
+    insert into os_company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="companyOid != null">
+        company_oid,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdDate != null">
+        created_date,
+      </if>
+      <if test="isEnabled != null">
+        is_enabled,
+      </if>
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="companyCode != null">
+        company_code,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="companyOid != null">
+        #{companyOid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null">
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isEnabled != null">
+        #{isEnabled,jdbcType=BIT},
+      </if>
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="companyCode != null">
+        #{companyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.common.orgstruct.entity.Company">
+    update os_company
+    <set>
+      <if test="companyOid != null">
+        company_oid = #{companyOid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null">
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isEnabled != null">
+        is_enabled = #{isEnabled,jdbcType=BIT},
+      </if>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="companyCode != null">
+        company_code = #{companyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.common.orgstruct.entity.Company">
+    update os_company
+    set company_oid = #{companyOid,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      is_enabled = #{isEnabled,jdbcType=BIT},
+      tenant_id = #{tenantId,jdbcType=BIGINT},
+      company_code = #{companyCode,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

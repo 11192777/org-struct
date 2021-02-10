@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
 
 /**
@@ -12,7 +13,7 @@ import lombok.Data;
  */
 @Data
 @TableName("os_company")
-public class Company implements Serializable {
+public class Company extends Model<Company> {
     private Long id;
 
     private String oid;

@@ -8,46 +8,26 @@ import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
 
 /**
- * os_user
+ * os_tenant
  * @author 
  */
 @Data
-@TableName("os_user")
-public class User extends Model<User> {
+@TableName("os_tenant")
+public class Tenant extends Model<Tenant> {
     private Long id;
 
     /**
-     * 用户oid
+     * 租户名称
      */
-    private String oid;
+    private String name;
 
     /**
-     * 租户id
-     */
-    private Long tenantId;
-
-    /**
-     * 用户信息表关联
-     */
-    private Long concatId;
-
-    /**
-     * 用户激活状态
-     */
-    private Boolean isActivated;
-
-    /**
-     * 激活时间
-     */
-    private Date activatedDate;
-
-    /**
-     * 启用标记
+     * 启用状态
      */
     private Boolean isEnabled;
 
     /**
-     * 删除标记
+     * 删除状态
      */
     private Boolean isDeleted;
 
@@ -62,14 +42,13 @@ public class User extends Model<User> {
     private Long createdBy;
 
     /**
-     * 最后更新日期
+     * 最后修改时间
      */
     private Date lastModifiedDate;
 
     /**
-     * 更新人
+     * 最后修改人
      */
     private Long lastModifiedBy;
 
-    private static final long serialVersionUID = 1L;
 }

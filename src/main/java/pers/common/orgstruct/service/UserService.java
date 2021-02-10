@@ -9,4 +9,5 @@ import pers.common.orgstruct.entity.User;
  * @Version 1.0
  */
 public interface UserService extends IService<User> {
+
 }

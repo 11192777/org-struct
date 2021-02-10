@@ -5,7 +5,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pers.common.orgstruct.entity.Department;
-import pers.common.orgstruct.entity.User;
 import pers.common.orgstruct.service.DepartmentService;
 import pers.common.orgstruct.service.UserService;
 
@@ -39,5 +38,9 @@ public class OrgstructApplicationTests {
 
 		departmentService.save(department);
 
+	}
+
+	@Test
+	public void testUser(){
 	}
 }

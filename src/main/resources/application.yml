@@ -13,7 +13,7 @@ spring:
     encoding: UTF-8
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://111.229.191.45:3306/orgstruct?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://111.229.191.45:3306/org-struct?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: kerwin
     password: UWluZ3l1OTkwMTA0
   liquibase:

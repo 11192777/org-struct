@@ -39,13 +39,13 @@
             <column name="is_deleted" type="bit(1)" defaultValueBoolean="false" remarks="删除标记">
                 <constraints nullable="false"/>
             </column>
-            <column name="created_date" type="timestamp" remarks="创建时间">
+            <column name="created_date" type="timestamp" defaultValue="${now}" remarks="创建时间">
                 <constraints nullable="false"/>
             </column>
             <column name="created_by" type="bigint" remarks="创建人">
                 <constraints nullable="false"/>
             </column>
-            <column name="last_modified_date" type="timestamp" remarks="最后更新日期">
+            <column name="last_modified_date" type="timestamp" defaultValue="${now}" remarks="最后更新日期">
                 <constraints nullable="false"/>
             </column>
             <column name="last_modified_by" type="bigint" remarks="更新人">

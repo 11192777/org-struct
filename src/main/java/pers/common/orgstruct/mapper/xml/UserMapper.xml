@@ -4,10 +4,10 @@
     <resultMap id="BaseResultMap" type="pers.common.orgstruct.entity.User">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="oid" jdbcType="VARCHAR" property="oid"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="tenant_id" jdbcType="BIGINT" property="tenantId"/>
-        <result column="code" jdbcType="VARCHAR" property="code"/>
-        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="concat_id" jdbcType="BIGINT" property="concatId"/>
+        <result column="is_activated" jdbcType="BIT" property="isActivated"/>
+        <result column="activated_date" jdbcType="TIMESTAMP" property="activatedDate"/>
         <result column="is_enabled" jdbcType="BIT" property="isEnabled"/>
         <result column="is_deleted" jdbcType="BIT" property="isDeleted"/>
         <result column="created_date" jdbcType="TIMESTAMP" property="createdDate"/>
@@ -15,18 +15,19 @@
         <result column="last_modified_date" jdbcType="TIMESTAMP" property="lastModifiedDate"/>
         <result column="last_modified_by" jdbcType="BIGINT" property="lastModifiedBy"/>
     </resultMap>
-    <sql id="BaseColumnList">
-        os_user.id,
-        os_user.oid,
-        os_user.`name`,
-        os_user.tenant_id,
-        os_user.`code`,
-        os_user.address,
-        os_user.is_enabled,
-        os_user.is_deleted,
-        os_user.created_date,
-        os_user.created_by,
-        os_user.last_modified_date,
-        os_user.last_modified_by
-    </sql>
+    <sql id="Base_Column_List">
+        id,
+        oid,
+        tenant_id,
+        concat_id,
+        is_activated,
+        activated_date,
+        is_enabled,
+        is_deleted,
+        created_date,
+        created_by,
+        last_modified_date,
+        last_modified_by
+  </sql>
+
 </mapper>

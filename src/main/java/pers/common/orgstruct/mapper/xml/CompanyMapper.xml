@@ -3,13 +3,13 @@
 <mapper namespace="pers.common.orgstruct.mapper.CompanyMapper">
     <resultMap id="BaseResultMap" type="pers.common.orgstruct.entity.Company">
         <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="company_oid" jdbcType="VARCHAR" property="companyOid"/>
+        <result column="oid" jdbcType="VARCHAR" property="oid"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="created_by" jdbcType="VARCHAR" property="createdBy"/>
         <result column="created_date" jdbcType="TIMESTAMP" property="createdDate"/>
         <result column="is_enabled" jdbcType="BIT" property="isEnabled"/>
         <result column="tenant_id" jdbcType="BIGINT" property="tenantId"/>
-        <result column="company_code" jdbcType="VARCHAR" property="companyCode"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
         <result column="address" jdbcType="VARCHAR" property="address"/>
     </resultMap>
     <sql id="BaseColumnList">

@@ -11,8 +11,8 @@ import lombok.Data;
  * @author 
  */
 @Data
-@TableName("os_user")
-public class User implements Serializable {
+@TableName("phone_token")
+public class PhoneToken implements Serializable {
     private Long id;
 
     private String oid;
@@ -67,5 +67,4 @@ public class User implements Serializable {
      */
     private Long lastModifiedBy;
 
-    private static final long serialVersionUID = 1L;
 }

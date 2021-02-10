@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="generate.OsUserDao">
-    <resultMap id="BaseResultMap" type="pers.common.orgstruct.entity.User">
+<mapper namespace="generate.OsUserInfoDao">
+    <resultMap id="BaseResultMap" type="pers.common.orgstruct.entity.UserInfo">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="oid" jdbcType="VARCHAR" property="oid"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
@@ -16,17 +16,17 @@
         <result column="last_modified_by" jdbcType="BIGINT" property="lastModifiedBy"/>
     </resultMap>
     <sql id="BaseColumnList">
-        os_user.id,
-        os_user.oid,
-        os_user.`name`,
-        os_user.tenant_id,
-        os_user.`code`,
-        os_user.address,
-        os_user.is_enabled,
-        os_user.is_deleted,
-        os_user.created_date,
-        os_user.created_by,
-        os_user.last_modified_date,
-        os_user.last_modified_by
+        os_user_info.id,
+        os_user_info.oid,
+        os_user_info.`name`,
+        os_user_info.tenant_id,
+        os_user_info.code,
+        os_user_info.address,
+        os_user_info.is_enabled,
+        os_user_info.is_deleted,
+        os_user_info.created_date,
+        os_user_info.created_by,
+        os_user_info.last_modified_date,
+        os_user_info.last_modified_by
     </sql>
 </mapper>

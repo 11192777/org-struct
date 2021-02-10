@@ -5,7 +5,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-    <changeSet id="2021021011290001" author="qingyu.meng">
+    <changeSet id="2021021011290004" author="qingyu.meng">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="os_user"/>
@@ -14,9 +14,6 @@
         <createTable tableName="os_user">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}" remarks="id">
                 <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="name" type="varchar(100)" remarks="用户名称">
-                <constraints nullable="false"/>
             </column>
             <column name="oid" type="varchar(36)" remarks="用户oid">
                 <constraints nullable="false"/>
@@ -54,4 +51,152 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="2021021012220002" author="qingyu.meng">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="os_company"/>
+            </not>
+        </preConditions>
+        <createTable tableName="os_company">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}" remarks="id">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+           <column name="oid" type="varchar(32)">
+               <constraints nullable="false"/>
+           </column>
+            <column name="name" type="varchar(32)" remarks="公司名称">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tenant_id" type="bigint" remarks="租户id">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="varchar(20)" remarks="公司编码">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="varchar(255)" remarks="公司地址">
+                <constraints nullable="true"/>
+            </column>
+            <column name="is_enabled" type="bit(1)" defaultValueBoolean="true" remarks="启用标记">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_deleted" type="bit(1)" defaultValueBoolean="false" remarks="删除标记">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValue="${now}" remarks="创建时间">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="bigint" remarks="创建人">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="timestamp" defaultValue="${now}" remarks="最后更新日期">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="bigint" remarks="更新人">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2020021012260003" author="qingyu.meng">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="os_department"/>
+            </not>
+        </preConditions>
+        <createTable tableName="os_department">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}" remarks="id">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="oid" type="varchar(32)" remarks="oid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(100)" remarks="部门名称">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="varchar(20)" remarks="部门编码">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company_id" type="bigint" remarks="所属公司Id">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tenant_id" type="bigint" remarks="所属租户id">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_deleted" type="bit(1)" defaultValueBoolean="false" remarks="删除状态">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValue="${now}" remarks="创建时间">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="bigint" remarks="创建人">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="timestamp" defaultValue="${now}" remarks="最后更新日期">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="bigint" remarks="更新人">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2020021012330001" author="qingyu.meng">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="os_user_info"/>
+            </not>
+        </preConditions>
+        <createTable tableName="os_user_info">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="oid" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_name" type="varchar(200)" remarks="用户名称">
+                <constraints nullable="true"/>
+            </column>
+            <column name="phone_number"  type="varchar(32)" remarks="手机号">
+                <constraints nullable="false"/>
+            </column>
+            <column name="login_account" type="varchar(32)" remarks="登陆账号">
+                <constraints nullable="false"/>
+            </column>
+            <column name="login_password" type="varchar(32)" remarks="登陆密码">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValue="${now}" remarks="创建时间">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="bigint" remarks="创建人">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="timestamp" defaultValue="${now}" remarks="最后更新日期">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="bigint" remarks="更新人">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2021021012390002" author="qingyu.meng">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="os_phone_token"/>
+            </not>
+        </preConditions>
+        <createTable tableName="os_phone_token">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="token_value" type="varchar(6)" remarks="验证码">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expire_time" type="timestamp" remarks="验证码有效截止时间">
+                <constraints nullable="false"/>
+            </column>
+            <column name="to_user" type="bigint" remarks="验证人">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>

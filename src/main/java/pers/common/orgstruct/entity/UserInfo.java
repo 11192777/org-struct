@@ -11,8 +11,8 @@ import lombok.Data;
  * @author 
  */
 @Data
-@TableName("os_user")
-public class User implements Serializable {
+@TableName("os_user_info")
+public class UserInfo implements Serializable {
     private Long id;
 
     private String oid;

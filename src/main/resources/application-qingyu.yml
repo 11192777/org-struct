@@ -1,7 +1,7 @@
 # server
 server:
   servlet:
-    context-path: /orgstruct
+    context-path: /orgs
   port: 9091
 
 # spring

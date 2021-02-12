@@ -27,8 +27,4 @@ public class UserController {
 		return ResponseDataDTO.ok();
 	}
 
-	@GetMapping("/api/v1/test")
-	public ResponseDataDTO test(){
-		return ResponseDataDTO.ok();
-	}
 }

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pers.common.orgstruct.entity.UserInfo;
 
 /**
  * @Author Qingyu
@@ -26,8 +27,13 @@ public class UserVO {
 	private String name;
 
 	/**
-	 * 用户密码
+	 * 租户id
 	 */
-	private String password;
+	private Long tenantId;
+
+	/**
+	 * 用户详细信息
+	 */
+	private UserInfo userInfo;
 
 }

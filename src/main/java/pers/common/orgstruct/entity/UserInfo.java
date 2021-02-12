@@ -4,49 +4,44 @@ import java.io.Serializable;
 import java.util.Date;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
- * os_company
+ * os_user_info
  * @author 
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @TableName("os_user_info")
-public class UserInfo extends Model<UserInfo> {
+public class UserInfo implements Serializable {
     private Long id;
 
     private String oid;
 
     /**
-     * 公司名称
+     * 用户名称
      */
-    private String name;
+    private String userName;
 
     /**
-     * 租户id
+     * 手机号
      */
-    private Long tenantId;
+    private String phoneNumber;
 
     /**
-     * 公司编码
+     * 登陆账号
      */
-    private String code;
+    private String loginAccount;
 
     /**
-     * 公司地址
+     * 登陆密码
      */
-    private String address;
-
-    /**
-     * 启用标记
-     */
-    private Boolean isEnabled;
-
-    /**
-     * 删除标记
-     */
-    private Boolean isDeleted;
+    private String loginPassword;
 
     /**
      * 创建时间

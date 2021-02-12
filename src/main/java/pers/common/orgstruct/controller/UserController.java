@@ -1,5 +1,6 @@
 package pers.common.orgstruct.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,11 @@ public class UserController {
 	                                      @RequestParam(value = "passwordRepeat", required = true) String passwordRepeat) {
 		System.out.println(account);
 
+		return ResponseDataDTO.ok();
+	}
+
+	@GetMapping("/api/v1/test")
+	public ResponseDataDTO test(){
 		return ResponseDataDTO.ok();
 	}
 }

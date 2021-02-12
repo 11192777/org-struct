@@ -30,3 +30,4 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations:
     - classpath:pers/common/orgstruct/mapper/xml/*.xml
+

@@ -43,7 +43,6 @@ public class ResponseDataDTO<T> {
     private long total;
 
     public ResponseDataDTO() {
-        this.statusCode = SUCCESS;
     }
 
     public ResponseDataDTO(T body){

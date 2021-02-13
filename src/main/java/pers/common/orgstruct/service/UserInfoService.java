@@ -16,4 +16,11 @@ public interface UserInfoService extends IService<UserInfo> {
 	 * @param userInfoDTO
 	 */
 	Long saveUserInfo(UserInfoDTO userInfoDTO);
+
+	/**
+	 * 通过账户查询用户信息
+	 * @param account
+	 * @return
+	 */
+	UserInfo queryByAccount(String account);
 }

@@ -9,4 +9,6 @@ import pers.common.orgstruct.entity.UserInfo;
  * @Version 1.0
  */
 public interface UserInfoMapper extends BaseMapper<UserInfo> {
+
+	UserInfo selectByAccount(String account);
 }

@@ -8,6 +8,7 @@ import pers.common.orgstruct.entity.UserInfo;
 import pers.common.orgstruct.mapper.UserInfoMapper;
 import pers.common.orgstruct.service.UserInfoService;
 import pers.common.orgstruct.utils.SecurityUtil;
+import pers.common.orgstruct.utils.StringUtils;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -24,6 +25,19 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
 	@Autowired
 	private UserInfoMapper userInfoMapper;
 
+
+	/**
+	 * 通过账户查询用户信息
+	 * @param account
+	 * @return
+	 */
+	@Override
+	public UserInfo queryByAccount(String account) {
+		if (StringUtils.isEmpty(account)){
+			return null;
+		}
+		return userInfoMapper.selectByAccount(account);
+	}
 
 	/**
 	 * 保存用户信息

@@ -26,4 +26,14 @@
         last_modified_by
     </sql>
 
+
+    <!--UserInfo selectByAccount(String account);-->
+    <select id="selectByAccount" resultMap="BaseResultMap">
+        SELECT
+            <include refid="BaseColumnList"/>
+        FROM
+            os_user_info oui
+        WHERE
+            oui.login_account = #{account}
+    </select>
 </mapper>

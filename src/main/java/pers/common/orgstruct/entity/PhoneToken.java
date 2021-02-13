@@ -2,21 +2,26 @@ package pers.common.orgstruct.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import pers.common.orgstruct.config.typehandler.UUIDTypeHandler;
 
 /**
  * os_company
  * @author 
  */
 @Data
-@TableName("phone_token")
+@AllArgsConstructor
+@NoArgsConstructor
+@TableName("os_phone_token")
 public class PhoneToken extends Model<PhoneToken> {
     private Long id;
-
-    private String oid;
 
     /**
      * 公司名称

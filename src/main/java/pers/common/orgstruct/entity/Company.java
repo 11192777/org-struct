@@ -16,8 +16,6 @@ import lombok.Data;
 public class Company extends Model<Company> {
     private Long id;
 
-    private String oid;
-
     /**
      * 公司名称
      */

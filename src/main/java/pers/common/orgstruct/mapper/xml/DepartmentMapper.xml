@@ -3,7 +3,6 @@
 <mapper namespace="pers.common.orgstruct.mapper.DepartmentMapper">
     <resultMap id="BaseResultMap" type="pers.common.orgstruct.entity.Department">
         <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="oid" jdbcType="VARCHAR" property="oid"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="code" jdbcType="VARCHAR" property="code"/>
         <result column="tenant_id" jdbcType="BIGINT" property="tenantId"/>
@@ -15,7 +14,6 @@
     </resultMap>
     <sql id="BaseColumnList">
         os_department.id,
-        os_department.oid,
         os_department.`name`,
         os_department.code,
         os_department.company_id,

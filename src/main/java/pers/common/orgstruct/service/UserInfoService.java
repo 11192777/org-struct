@@ -1,6 +1,8 @@
 package pers.common.orgstruct.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import pers.common.orgstruct.entity.Tenant;
+import pers.common.orgstruct.entity.UserInfo;
 import pers.common.orgstruct.dto.UserInfoDTO;
 import pers.common.orgstruct.entity.UserInfo;
 
@@ -10,6 +12,8 @@ import pers.common.orgstruct.entity.UserInfo;
  * @Version 1.0
  */
 public interface UserInfoService extends IService<UserInfo> {
+
+	void userLoginByPhone(String phoneNumber, String password);
 
 	/**
 	 * 保存用户信息

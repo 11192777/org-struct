@@ -11,6 +11,7 @@ import pers.common.orgstruct.entity.User;
 import pers.common.orgstruct.entity.UserInfo;
 import pers.common.orgstruct.enumeration.RegisterType;
 import pers.common.orgstruct.exception.BusinessException;
+import pers.common.orgstruct.mapper.UserInfoMapper;
 import pers.common.orgstruct.mapper.UserMapper;
 import pers.common.orgstruct.service.PhoneTokenService;
 import pers.common.orgstruct.service.UserInfoService;
@@ -29,12 +30,16 @@ import java.time.LocalDateTime;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
+<<<<<<< HEAD
+
+=======
 	@Autowired
 	private UserMapper userMapper;
 	@Autowired
 	private UserInfoService userInfoService;
 	@Autowired
 	private PhoneTokenService phoneTokenService;
+>>>>>>> qingyu/master
 
 	/**
 	 * 用户注册
@@ -112,4 +117,5 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
 		return user.getId();
 	}
+
 }

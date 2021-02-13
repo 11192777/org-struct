@@ -20,10 +20,15 @@ public interface UserService extends IService<User> {
 	 * @param token             验证码
 	 * @param registerType      注册方式
 	 */
+<<<<<<< HEAD
+	void userRegister(String account, String password, String passwordRepeat);
+
+=======
 	void userRegister(String account, String password, String passwordRepeat, String token, RegisterType registerType);
 
 	/**
 	 * 保存用户信息
 	 */
 	Long saveUser(UserDTO userDTO);
+>>>>>>> qingyu/master
 }

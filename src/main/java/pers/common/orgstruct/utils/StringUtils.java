@@ -42,4 +42,10 @@ public class StringUtils {
 		return !isEmpty(cs);
 	}
 
+	public static String generateCode(int length){
+		String randomCode = null;
+
+		return randomCode;
+	}
+
 }

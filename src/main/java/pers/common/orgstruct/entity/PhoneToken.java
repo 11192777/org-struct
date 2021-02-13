@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pers.common.orgstruct.config.typehandler.UUIDTypeHandler;
@@ -20,6 +21,7 @@ import pers.common.orgstruct.config.typehandler.UUIDTypeHandler;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("os_phone_token")
+@Builder
 public class PhoneToken extends Model<PhoneToken> {
     private Long id;
 

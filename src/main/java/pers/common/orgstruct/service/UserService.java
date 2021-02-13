@@ -24,5 +24,5 @@ public interface UserService extends IService<User> {
 	/**
 	 * 保存用户信息
 	 */
-	void saveUser(UserDTO userDTO);
+	Long saveUser(UserDTO userDTO);
 }

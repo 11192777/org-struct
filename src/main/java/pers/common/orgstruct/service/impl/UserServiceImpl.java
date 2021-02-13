@@ -6,11 +6,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pers.common.orgstruct.dto.UserDTO;
 import pers.common.orgstruct.dto.UserInfoDTO;
+import pers.common.orgstruct.entity.PhoneToken;
 import pers.common.orgstruct.entity.User;
 import pers.common.orgstruct.entity.UserInfo;
 import pers.common.orgstruct.enumeration.RegisterType;
 import pers.common.orgstruct.exception.BusinessException;
 import pers.common.orgstruct.mapper.UserMapper;
+import pers.common.orgstruct.service.PhoneTokenService;
 import pers.common.orgstruct.service.UserInfoService;
 import pers.common.orgstruct.service.UserService;
 import pers.common.orgstruct.utils.MD5Util;
@@ -32,6 +34,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 	private UserMapper userMapper;
 	@Autowired
 	private UserInfoService userInfoService;
+	@Autowired
+	private PhoneTokenService phoneTokenService;
 
 	/**
 	 * 用户注册
@@ -62,14 +66,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 				.password(password)
 				.build();
 
-		this.saveUser(userDTO);
+		Long userId = this.saveUser(userDTO);
+
+		//发送验证码
+		if (registerType.equals(RegisterType.PHONE_NUMBER.equals(registerType))){
+			phoneTokenService.sendToken(account);
+		}
 	}
 
 	/**
 	 * 保存用户信息
 	 */
 	@Override
-	public void saveUser(UserDTO userDTO) {
+	@Transactional
+	public Long saveUser(UserDTO userDTO) {
 
 		UserInfoDTO userInfoDTO = UserInfoDTO.builder()
 				.phoneNumber(userDTO.getPhoneNumber())
@@ -97,5 +107,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
 		userMapper.insert(user);
 
+		return user.getId();
 	}
 }

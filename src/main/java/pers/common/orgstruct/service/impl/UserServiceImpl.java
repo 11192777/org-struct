@@ -1,9 +1,11 @@
 package pers.common.orgstruct.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pers.common.orgstruct.entity.User;
 import pers.common.orgstruct.exception.BusinessException;
+import pers.common.orgstruct.mapper.UserInfoMapper;
 import pers.common.orgstruct.mapper.UserMapper;
 import pers.common.orgstruct.service.UserService;
 import pers.common.orgstruct.utils.StringUtils;
@@ -15,6 +17,8 @@ import pers.common.orgstruct.utils.StringUtils;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+
+
 
 	/**
 	 * 用户注册
@@ -33,4 +37,5 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 		}
 
 	}
+
 }

@@ -17,4 +17,5 @@ public interface UserService extends IService<User> {
 	 * @param passwordRepeat
 	 */
 	void userRegister(String account, String password, String passwordRepeat);
+
 }

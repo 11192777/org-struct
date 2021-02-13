@@ -12,6 +12,8 @@ import pers.common.orgstruct.dto.ResponseDataDTO;
 import pers.common.orgstruct.enumeration.RegisterType;
 import pers.common.orgstruct.service.UserService;
 
+import java.time.OffsetTime;
+
 /**
  * @Author Qingyu
  * @Date 2021/2/12 18:19
@@ -27,11 +29,11 @@ public class UserController {
 	 * 用户邮箱注册
 	 */
 	@GetMapping("/api/v1/user/register/email")
-	public ResponseDataDTO userRegisteredByEmail(@RequestParam(value = "email", required = true) String account,
+	public ResponseDataDTO userRegisteredByEmail(@RequestParam(value = "email", required = true) String email,
 	                                             @RequestParam(value = "password", required = true) String password,
 	                                             @RequestParam(value = "passwordRepeat", required = true) String passwordRepeat) {
 
-		userService.userRegister(account, password, passwordRepeat, RegisterType.EMAIL);
+		userService.userRegister(email, password, passwordRepeat, null, RegisterType.EMAIL);
 		return ResponseDataDTO.ok();
 	}
 
@@ -39,10 +41,11 @@ public class UserController {
 	 * 用户手机号注册
 	 */
 	@GetMapping("/api/v1/user/register/phone")
-	public ResponseDataDTO userRegisteredByPhone(@RequestParam(value = "email", required = true) String account,
+	public ResponseDataDTO userRegisteredByPhone(@RequestParam(value = "phone", required = true) String phoneNumber,
 	                                             @RequestParam(value = "password", required = true) String password,
-	                                             @RequestParam(value = "passwordRepeat", required = true) String passwordRepeat) {
-		userService.userRegister(account, password, passwordRepeat, RegisterType.PHONE_NUMBER);
+	                                             @RequestParam(value = "passwordRepeat", required = true) String passwordRepeat,
+	                                             @RequestParam(value = "phoneToken", required = false) String token) {
+		userService.userRegister(phoneNumber, password, passwordRepeat, token, RegisterType.PHONE_NUMBER);
 		return ResponseDataDTO.ok();
 	}
 }

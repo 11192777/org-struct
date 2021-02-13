@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import pers.common.orgstruct.entity.PhoneToken;
 import pers.common.orgstruct.mapper.PhoneTokenMapper;
 import pers.common.orgstruct.service.PhoneTokenService;
+import pers.common.orgstruct.utils.StringUtils;
+
+import java.time.LocalDateTime;
 
 /**
  * @Author Qingyu
@@ -18,13 +21,27 @@ public class PhoneTokenServiceImpl extends ServiceImpl<PhoneTokenMapper, PhoneTo
 	@Autowired
 	private PhoneTokenMapper phoneTokenMapper;
 
+	@Override
+	public PhoneToken queryByAccount(String account) {
+		return phoneTokenMapper.selectByAccount(account);
+	}
+
 	/**
 	 * 发送验证码
 	 * @param account
 	 */
 	@Override
-	public void sendToken(String account) {
+	public String generateToken(String account) {
+		LocalDateTime nowTime = LocalDateTime.now();
+
 		PhoneToken phoneToken = PhoneToken.builder()
-				.code()
+				.expireTime(nowTime)
+				.tokenValue(StringUtils.generateCode(6))
+				.toUser(account)
+				.build();
+
+		phoneTokenMapper.insert(phoneToken);
+
+		return phoneToken.getTokenValue();
 	}
 }

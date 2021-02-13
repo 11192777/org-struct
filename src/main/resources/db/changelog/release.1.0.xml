@@ -169,7 +169,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet id="2021021012390002" author="qingyu.meng">
+    <changeSet id="2021021012390003" author="qingyu.meng">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="os_phone_token"/>
@@ -185,7 +185,7 @@
             <column name="expire_time" type="timestamp" remarks="验证码有效截止时间">
                 <constraints nullable="false"/>
             </column>
-            <column name="to_user" type="bigint" remarks="验证人">
+            <column name="to_user" type="varchar(20)" remarks="验证人">
                 <constraints nullable="false"/>
             </column>
         </createTable>

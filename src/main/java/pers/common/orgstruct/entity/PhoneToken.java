@@ -1,8 +1,8 @@
 package pers.common.orgstruct.entity;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.UUID;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -11,68 +11,33 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pers.common.orgstruct.config.typehandler.UUIDTypeHandler;
+import org.apache.tomcat.util.modeler.BaseModelMBean;
 
 /**
- * os_company
+ * os_phone_token
  * @author 
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("os_phone_token")
 @Builder
+@TableName("os_phone_token")
 public class PhoneToken extends Model<PhoneToken> {
     private Long id;
 
     /**
-     * 公司名称
+     * 验证码
      */
-    private String name;
+    private String tokenValue;
 
     /**
-     * 租户id
+     * 验证码有效截止时间
      */
-    private Long tenantId;
+    private LocalDateTime expireTime;
 
     /**
-     * 公司编码
+     * 验证人
      */
-    private String code;
-
-    /**
-     * 公司地址
-     */
-    private String address;
-
-    /**
-     * 启用标记
-     */
-    private Boolean isEnabled;
-
-    /**
-     * 删除标记
-     */
-    private Boolean isDeleted;
-
-    /**
-     * 创建时间
-     */
-    private Date createdDate;
-
-    /**
-     * 创建人
-     */
-    private Long createdBy;
-
-    /**
-     * 最后更新日期
-     */
-    private Date lastModifiedDate;
-
-    /**
-     * 更新人
-     */
-    private Long lastModifiedBy;
+    private String toUser;
 
 }

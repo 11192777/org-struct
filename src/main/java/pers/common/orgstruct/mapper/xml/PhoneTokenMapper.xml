@@ -2,31 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="pers.common.orgstruct.mapper.PhoneTokenMapper">
     <resultMap id="BaseResultMap" type="pers.common.orgstruct.entity.PhoneToken">
-        <id column="id" property="id"/>
-        <result column="name" property="name"/>
-        <result column="tenant_id" property="tenantId"/>
-        <result column="code" property="code"/>
-        <result column="address" property="address"/>
-        <result column="is_enabled" property="isEnabled"/>
-        <result column="is_deleted" property="isDeleted"/>
-        <result column="created_date" property="createdDate"/>
-        <result column="created_by" property="createdBy"/>
-        <result column="last_modified_date" property="lastModifiedDate"/>
-        <result column="last_modified_by" property="lastModifiedBy"/>
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="token_value" property="tokenValue"/>
+        <result column="expire_time" property="expireTime"/>
+        <result column="to_user" property="toUser"/>
     </resultMap>
 
     <sql id="BaseColumnList">
         id,
-        `name`,
-        tenant_id,
-        `code`,
-        address,
-        is_enabled,
-        is_deleted,
-        created_date,
-        created_by,
-        last_modified_date,
-        last_modified_by
-  </sql>
+        token_value,
+        expire_time,
+        to_user
+    </sql>
 
+    <!--PhoneToken selectByAccount(String account);-->
+    <select id="selectByAccount" resultMap="BaseResultMap">
+        SELECT
+            <include refid="BaseColumnList"/>
+        FROM
+            os_phone_token
+        WHERE
+            to_user = #{account}
+        LIMIT
+            1
+    </select>
 </mapper>

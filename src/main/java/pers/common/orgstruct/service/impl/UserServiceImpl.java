@@ -18,7 +18,6 @@ import pers.common.orgstruct.service.UserService;
 import pers.common.orgstruct.utils.MD5Util;
 import pers.common.orgstruct.utils.SecurityUtil;
 import pers.common.orgstruct.utils.StringUtils;
-import pers.common.orgstruct.vo.UserVO;
 
 import java.time.LocalDateTime;
 
@@ -42,11 +41,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 	 * @param account
 	 * @param password
 	 * @param passwordRepeat
+	 * @param token             验证码
 	 * @param registerType      注册方式
 	 */
 	@Override
 	@Transactional
-	public void userRegister(String account, String password, String passwordRepeat, RegisterType registerType) {
+	public void userRegister(String account, String password, String passwordRepeat, String token, RegisterType registerType) {
 		if (StringUtils.isEmpty(account) || StringUtils.isEmpty(password) || StringUtils.isEmpty(passwordRepeat)) {
 			throw new BusinessException("缺少必填参数");
 		}
@@ -60,18 +60,21 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 			throw new BusinessException("该用户已经被注册！");
 		}
 
+		if (RegisterType.PHONE_NUMBER.equals(registerType)){
+			PhoneToken phoneToken = phoneTokenService.queryByAccount(account);
+			if (phoneToken == null || !phoneToken.getTokenValue().equals(token)){
+				throw new BusinessException("验证码错误");
+			}
+		}
+
 		UserDTO userDTO = UserDTO.builder()
 				.email(registerType.equals(RegisterType.EMAIL) ? account : null)
 				.phoneNumber(registerType.equals(RegisterType.PHONE_NUMBER) ? account : null)
 				.password(password)
 				.build();
 
-		Long userId = this.saveUser(userDTO);
+		this.saveUser(userDTO);
 
-		//发送验证码
-		if (registerType.equals(RegisterType.PHONE_NUMBER.equals(registerType))){
-			phoneTokenService.sendToken(account);
-		}
 	}
 
 	/**

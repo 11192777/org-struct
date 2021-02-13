@@ -17,9 +17,10 @@ public interface UserService extends IService<User> {
 	 * @param account
 	 * @param password
 	 * @param passwordRepeat
+	 * @param token             验证码
 	 * @param registerType      注册方式
 	 */
-	void userRegister(String account, String password, String passwordRepeat, RegisterType registerType);
+	void userRegister(String account, String password, String passwordRepeat, String token, RegisterType registerType);
 
 	/**
 	 * 保存用户信息

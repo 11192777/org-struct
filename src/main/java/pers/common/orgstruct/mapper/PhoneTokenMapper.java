@@ -9,4 +9,6 @@ import pers.common.orgstruct.entity.PhoneToken;
  * @Version 1.0
  */
 public interface PhoneTokenMapper extends BaseMapper<PhoneToken> {
+
+	PhoneToken selectByAccount(String account);
 }

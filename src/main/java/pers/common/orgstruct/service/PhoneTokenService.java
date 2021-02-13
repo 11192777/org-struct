@@ -14,5 +14,7 @@ public interface PhoneTokenService extends IService<PhoneToken> {
 	 * 发送验证码
 	 * @param account
 	 */
-	void sendToken(String account);
+	String generateToken(String account);
+
+	PhoneToken queryByAccount(String account);
 }

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import pers.common.orgstruct.dto.UserDTO;
 import pers.common.orgstruct.entity.User;
 import pers.common.orgstruct.enumeration.RegisterType;
+import pers.common.orgstruct.vo.UserVO;
 
 /**
  * @Author Qingyu
@@ -20,15 +21,12 @@ public interface UserService extends IService<User> {
 	 * @param token             验证码
 	 * @param registerType      注册方式
 	 */
-<<<<<<< HEAD
-	void userRegister(String account, String password, String passwordRepeat);
-
-=======
 	void userRegister(String account, String password, String passwordRepeat, String token, RegisterType registerType);
 
 	/**
 	 * 保存用户信息
 	 */
 	Long saveUser(UserDTO userDTO);
->>>>>>> qingyu/master
+
+    UserVO queryUserByConcatId(Long id);
 }

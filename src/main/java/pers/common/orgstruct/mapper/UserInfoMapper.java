@@ -15,6 +15,6 @@ import pers.common.orgstruct.entity.UserInfo;
  */
 public interface UserInfoMapper extends BaseMapper<UserInfo> {
 
-    UserInfo queryUser(String account, String password);
+    UserInfo queryUserByPhoneNumberAndPassword(String account, String password);
 	UserInfo selectByAccount(String account);
 }

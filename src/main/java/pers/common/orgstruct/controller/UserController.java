@@ -53,7 +53,7 @@ public class UserController {
 	public ResponseDataDTO userLoginByPhone(@RequestParam(value = "email", required = true) String phoneNumber,
 											@RequestParam(value = "password", required = true) String password,
 											HttpSession session) {
-		userInfoService.userLoginByPhone(phoneNumber, password);
+		userInfoService.userLoginByPhone(phoneNumber, password, session);
 
 
 		return ResponseDataDTO.ok();

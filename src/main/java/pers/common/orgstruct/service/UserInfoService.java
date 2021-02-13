@@ -6,6 +6,8 @@ import pers.common.orgstruct.entity.UserInfo;
 import pers.common.orgstruct.dto.UserInfoDTO;
 import pers.common.orgstruct.entity.UserInfo;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * @Author Qingyu
  * @Date 2021/2/12 23:17
@@ -13,7 +15,7 @@ import pers.common.orgstruct.entity.UserInfo;
  */
 public interface UserInfoService extends IService<UserInfo> {
 
-	void userLoginByPhone(String phoneNumber, String password);
+	void userLoginByPhone(String phoneNumber, String password, HttpSession session);
 
 	/**
 	 * 保存用户信息

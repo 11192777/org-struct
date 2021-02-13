@@ -14,7 +14,7 @@
         <result column="last_modified_date" property="lastModifiedDate"/>
         <result column="last_modified_by" property="lastModifiedBy"/>
     </resultMap>
-    <sql id="Base_Column_List">
+    <sql id="BaseColumnList">
         id,
         tenant_id,
         concat_id,
@@ -27,5 +27,14 @@
         last_modified_date,
         last_modified_by
   </sql>
+    <select id="selectUserByConcatId" resultMap="BaseResultMap">
+        select
+        <include refid="BaseColumnList"/>
+        from
+        os_user
+        where
+        concat_id = #{id}
+
+    </select>
 
 </mapper>

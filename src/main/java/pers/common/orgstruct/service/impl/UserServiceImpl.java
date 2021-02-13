@@ -19,6 +19,7 @@ import pers.common.orgstruct.service.UserService;
 import pers.common.orgstruct.utils.MD5Util;
 import pers.common.orgstruct.utils.SecurityUtil;
 import pers.common.orgstruct.utils.StringUtils;
+import pers.common.orgstruct.vo.UserVO;
 
 import java.time.LocalDateTime;
 
@@ -30,16 +31,12 @@ import java.time.LocalDateTime;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
-<<<<<<< HEAD
-
-=======
 	@Autowired
 	private UserMapper userMapper;
 	@Autowired
 	private UserInfoService userInfoService;
 	@Autowired
 	private PhoneTokenService phoneTokenService;
->>>>>>> qingyu/master
 
 	/**
 	 * 用户注册
@@ -79,6 +76,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 				.build();
 
 		this.saveUser(userDTO);
+
+	}
+
+	@Override
+	public UserVO queryUserByConcatId(Long id) {
+		return userMapper.selectUserByConcatId(id);
+
+			/*Maper : select insert delete update
+			Service: query save remove update	*/
 
 	}
 

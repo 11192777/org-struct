@@ -30,6 +30,11 @@ public class UserInfoDTO {
 	private String phoneNumber;
 
 	/**
+	 * 邮箱
+	 */
+	private String email;
+
+	/**
 	 * 登陆账号
 	 */
 	private String loginAccount;

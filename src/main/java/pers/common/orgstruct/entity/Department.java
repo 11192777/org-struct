@@ -22,8 +22,6 @@ import lombok.NoArgsConstructor;
 public class Department extends Model<Department> {
     private Long id;
 
-    private String oid;
-
     /**
      * 公司名称
      */

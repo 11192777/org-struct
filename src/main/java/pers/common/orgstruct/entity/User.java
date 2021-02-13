@@ -1,14 +1,18 @@
 package pers.common.orgstruct.entity;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.UUID;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pers.common.orgstruct.config.typehandler.UUIDTypeHandler;
 
 /**
  * os_user
@@ -21,11 +25,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class User extends Model<User> {
     private Long id;
-
-    /**
-     * 用户oid
-     */
-    private String oid;
 
     /**
      * 租户id
@@ -45,7 +44,7 @@ public class User extends Model<User> {
     /**
      * 激活时间
      */
-    private Date activatedDate;
+    private LocalDateTime activatedDate;
 
     /**
      * 启用标记
@@ -60,7 +59,7 @@ public class User extends Model<User> {
     /**
      * 创建时间
      */
-    private Date createdDate;
+    private LocalDateTime createdDate;
 
     /**
      * 创建人
@@ -70,7 +69,7 @@ public class User extends Model<User> {
     /**
      * 最后更新日期
      */
-    private Date lastModifiedDate;
+    private LocalDateTime lastModifiedDate;
 
     /**
      * 更新人

@@ -5,7 +5,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-    <changeSet id="2021021011290004" author="qingyu.meng">
+    <changeSet id="2021021011290005" author="qingyu.meng">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="os_user"/>
@@ -14,9 +14,6 @@
         <createTable tableName="os_user">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}" remarks="id">
                 <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="oid" type="varchar(36)" remarks="用户oid">
-                <constraints nullable="false"/>
             </column>
             <column name="tenant_id" type="bigint" remarks="租户id">
                 <constraints nullable="false"/>
@@ -51,7 +48,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="2021021012220002" author="qingyu.meng">
+    <changeSet id="2021021012220003" author="qingyu.meng">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="os_company"/>
@@ -61,9 +58,6 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}" remarks="id">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-           <column name="oid" type="varchar(32)">
-               <constraints nullable="false"/>
-           </column>
             <column name="name" type="varchar(32)" remarks="公司名称">
                 <constraints nullable="false"/>
             </column>
@@ -97,7 +91,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="2020021012260003" author="qingyu.meng">
+    <changeSet id="2020021012260004" author="qingyu.meng">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="os_department"/>
@@ -106,9 +100,6 @@
         <createTable tableName="os_department">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}" remarks="id">
                 <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="oid" type="varchar(32)" remarks="oid">
-                <constraints nullable="false"/>
             </column>
             <column name="name" type="varchar(100)" remarks="部门名称">
                 <constraints nullable="false"/>
@@ -139,7 +130,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet id="2020021012330001" author="qingyu.meng">
+    <changeSet id="2020021012330004" author="qingyu.meng">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="os_user_info"/>
@@ -149,14 +140,14 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="oid" type="varchar(32)">
-                <constraints nullable="false"/>
-            </column>
             <column name="user_name" type="varchar(200)" remarks="用户名称">
                 <constraints nullable="true"/>
             </column>
             <column name="phone_number"  type="varchar(32)" remarks="手机号">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
+            </column>
+            <column name="email"  type="varchar(32)" remarks="邮箱">
+                <constraints nullable="true"/>
             </column>
             <column name="login_account" type="varchar(32)" remarks="登陆账号">
                 <constraints nullable="false"/>
@@ -178,7 +169,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet id="2021021012390002" author="qingyu.meng">
+    <changeSet id="2021021012390003" author="qingyu.meng">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="os_phone_token"/>
@@ -194,7 +185,7 @@
             <column name="expire_time" type="timestamp" remarks="验证码有效截止时间">
                 <constraints nullable="false"/>
             </column>
-            <column name="to_user" type="bigint" remarks="验证人">
+            <column name="to_user" type="varchar(20)" remarks="验证人">
                 <constraints nullable="false"/>
             </column>
         </createTable>

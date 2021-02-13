@@ -3,7 +3,6 @@
 <mapper namespace="pers.common.orgstruct.mapper.CompanyMapper">
     <resultMap id="BaseResultMap" type="pers.common.orgstruct.entity.Company">
         <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="oid" jdbcType="VARCHAR" property="oid"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="created_by" jdbcType="VARCHAR" property="createdBy"/>
         <result column="created_date" jdbcType="TIMESTAMP" property="createdDate"/>
@@ -14,7 +13,6 @@
     </resultMap>
     <sql id="BaseColumnList">
         os_company.id,
-        os_company.company_oid,
         os_company.`name`,
         os_company.created_by,
         os_company.created_date,

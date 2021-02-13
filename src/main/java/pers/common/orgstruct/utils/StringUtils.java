@@ -1,5 +1,7 @@
 package pers.common.orgstruct.utils;
 
+import com.sun.jmx.snmp.SnmpStringFixed;
+
 import java.util.Collection;
 import java.util.Objects;
 import java.util.stream.Collector;
@@ -40,6 +42,16 @@ public class StringUtils {
 
 	public static boolean isNotEmpty(final CharSequence cs) {
 		return !isEmpty(cs);
+	}
+
+	public static String generateCode(int length){
+
+		StringBuffer sbff = new StringBuffer();
+		for (int i = 0; i < length; i++){
+			sbff.append((int) (Math.random() * 10));
+		}
+
+		return sbff.toString();
 	}
 
 }
